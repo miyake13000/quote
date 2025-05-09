@@ -1,12 +1,18 @@
-<% content_for :title, "Editing post" %>
+<%= turbo_frame_tag @post do %>
+  <div class="post-edit">
+    <%= form_with(model: @post, class: "post-edit-form") do |form| %>
 
-<h1>Editing post</h1>
+      <%= form.hidden_field :year %>
 
-<%= render "form", post: @post %>
+      <div class="post-edit-form-content">
+        <%= form.rich_textarea :content, class: "post-form-content-content" %>
+      </div>
 
-<br>
+      <div class="post-edit-action">
+        <%= link_to "キャンセル", @post, class: "post-edit-action-cancel" %>
+        <%= form.submit "更新", class: "post-edit-submit" %>
+      </div>
 
-<div>
-  <%= link_to "Show this post", @post %> |
-  <%= link_to "Back to posts", posts_path %>
-</div>
+    <% end %>
+  </div>
+<% end %>

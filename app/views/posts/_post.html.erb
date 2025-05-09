@@ -1,9 +1,20 @@
-<div id="<%= dom_id post %>">
-  <p>
-    <%= post.reporter %>: <%= l post.updated_at, format: :date %>
-  </p>
+<%= turbo_frame_tag post do %>
+  <div class="post_header">
+    <div class="post_header_reporter">
+      <%= post.reporter %>
+    </div>
 
-  <p>
+    <div class="post_header_date">
+      <%= l post.updated_at, format: :date %>
+    </div>
+  </div>
+
+  <div class="post_content">
     <%= post.content %>
-  </p>
-</div>
+  </div>
+
+  <div class="post-actions">
+    <%= button_to "編集", edit_post_path(post), method: :get, class: "post-action-edit" %>
+    <%= button_to "削除", post, method: :delete, class: "post-action-delete", form: { data: { turbo_confirm: "削除しますか？" } } %>
+  </div>
+<% end %>

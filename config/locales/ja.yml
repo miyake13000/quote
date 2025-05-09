@@ -34,3 +34,13 @@ ja:
       defaultS: "%Y年%m月%d日 %H時%M分%S秒"
       date: "%Y/%m/%d"
       dateS: "%Y年%m月%d日"
+  activerecord:
+    attributes:
+      post:
+        year: 年度
+        reporter: 名前
+        content: 内容
+    errors:
+      models:
+        post:
+          blank: を入力してください

@@ -1,14 +1,9 @@
 <p style="color: green"><%= notice %></p>
 
-<% content_for :title, "Posts" %>
-
-<div id="posts">
-  <% @posts.each do |post| %>
-    <%= render post %>
-    <p>
-      <%= link_to "Show this post", post %>
-    </p>
-  <% end %>
+<div class="posts-wrapper", id="posts">
+  <%= render @posts %>
 </div>
 
-<%= link_to "New post", new_post_path %>
+<div class="post-form-wrapper", id="form">
+  <%= render "form", post: @post %>
+</div>

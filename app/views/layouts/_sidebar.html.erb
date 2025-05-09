@@ -1,4 +1,5 @@
 <ul>
+  <li><a href=<%= "#{posts_url}?year=#{current_year}" %>>今年度のページを開く</a></li>
   <% @years.each do |year| %>
     <li><a href=<%= "#{posts_url}?year=#{year}" %>><%= "#{year}年度" %></a></li>
   <% end %>

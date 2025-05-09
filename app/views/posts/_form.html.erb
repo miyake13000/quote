@@ -1,31 +1,25 @@
-<%= form_with(model: post) do |form| %>
-  <% if post.errors.any? %>
-    <div style="color: red">
-      <h2><%= pluralize(post.errors.count, "error") %> prohibited this post from being saved:</h2>
+<%= turbo_frame_tag post do %>
+  <%= form_with model: post, class: "post-form" do |form| %>
+    <% if post.errors.any? %>
+      <div style="color: red">
+        <ul>
+          <% post.errors.each do |error| %>
+            <li><%= error.full_message %></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
 
-      <ul>
-        <% post.errors.each do |error| %>
-          <li><%= error.full_message %></li>
-        <% end %>
-      </ul>
-    </div>
-  <% end %>
-
-  <div>
     <%= form.hidden_field :year %>
-  </div>
 
-  <div>
-    <%= form.label :reporter, style: "display: block" %>
-    <%= form.text_field :reporter %>
-  </div>
+    <div class="post-form-reporter">
+      <%= form.text_field :reporter, class: "post-form-reporter-content", placeholder: "名前" %>
+    </div>
 
-  <div>
-    <%= form.label :content, style: "display: block" %>
-    <%= form.rich_textarea :content %>
-  </div>
+    <div class="post-form-content">
+      <%= form.rich_textarea :content, class: "post-form-content-content" %>
+    </div>
 
-  <div>
-    <%= form.submit %>
-  </div>
+    <%= form.submit "投稿", class: "post-form-submit" %>
+  <% end %>
 <% end %>

@@ -9,47 +9,49 @@ class PostsController < ApplicationController
 
   # GET /posts
   def index
-    if @year
-      @posts = Post.where(year: @year)
+    @post = Post.new
+    if @year_param
+      @posts = Post.where(year: @year_param).order(created_at: :desc)
+      @post.year = @year_param
     else
-      @posts = Post.all
+      @posts = Post.order(created_at: :desc)
+      @post.year = current_year
     end
+  end
+
+  # GET /posts/:id
+  def show
   end
 
   # GET /posts/new
   def new
     @post = Post.new
-    @post.year = @year_param || get_current_year
-  end
-
-  # GET /posts/1/edit
-  def edit
+    @post.year = current_year
   end
 
   # POST /posts
   def create
     @post = Post.new(post_params)
 
-    if @post.save
-      redirect_to @post, notice: "Post was successfully created."
-    else
+    if !@post.save
       render :new, status: :unprocessable_entity
     end
   end
 
+  # GET /posts/:id/edit
+  def edit
+  end
+
   # PATCH/PUT /posts/1
   def update
-    if @post.update(post_params)
-      redirect_to @post, notice: "Post was successfully updated.", status: :see_other
-    else
+    if !@post.update(post_params)
       render :edit, status: :unprocessable_entity
     end
   end
 
   # DELETE /posts/1
   def destroy
-    @post.destroy!
-    redirect_to posts_path, notice: "Post was successfully destroyed.", status: :see_other
+    @post.destroy
   end
 
   private
@@ -58,19 +60,19 @@ class PostsController < ApplicationController
       @post = Post.find(params.expect(:id))
     end
 
-    def get_year_from_params
-      @year = begin
-        Integer(params.expect(:year))
-      rescue
-        nil
-      end
-    end
-
-    def get_current_year
-      date = Date.today
+    def current_year
+      date = Time.current.to_date
       if date.month >= 4
         date.year
       else
+        date.year - 1
+      end
+    end
+
+    def get_year_from_params
+      @year_param = begin
+        Integer(params.expect(:year))
+      rescue
         nil
       end
     end
