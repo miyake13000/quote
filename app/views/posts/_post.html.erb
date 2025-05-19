@@ -1,20 +1,24 @@
 <%= turbo_frame_tag post do %>
-  <div class="post_header">
-    <div class="post_header_reporter">
-      <%= post.reporter %>
+  <div class="post">
+    <div class="post-top">
+      <div class="post-header">
+        <div class="post-reporter">
+          <%= post.reporter != "" ? post.reporter : "Anonymous" %>
+        </div>
+
+        <div class="post-date">
+          <%= l post.updated_at, format: :date %>
+        </div>
+      </div>
+
+      <div class="post-action">
+        <%= button_to "編集", edit_post_path(post), method: :get, class: "post-action-edit" %>
+        <%= button_to "削除", post, method: :delete, class: "post-action-delete", form: { data: { turbo_confirm: "削除しますか？" } } %>
+      </div>
     </div>
 
-    <div class="post_header_date">
-      <%= l post.updated_at, format: :date %>
+    <div class="post-content">
+      <%= post.content %>
     </div>
-  </div>
-
-  <div class="post_content">
-    <%= post.content %>
-  </div>
-
-  <div class="post-actions">
-    <%= button_to "編集", edit_post_path(post), method: :get, class: "post-action-edit" %>
-    <%= button_to "削除", post, method: :delete, class: "post-action-delete", form: { data: { turbo_confirm: "削除しますか？" } } %>
   </div>
 <% end %>

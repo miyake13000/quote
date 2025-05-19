@@ -1,9 +1,9 @@
-<p style="color: green"><%= notice %></p>
+<div class="posts-and-form">
+  <div class="posts", id="posts">
+    <%= render @posts %>
+  </div>
 
-<div class="posts-wrapper", id="posts">
-  <%= render @posts %>
-</div>
-
-<div class="post-form-wrapper", id="form">
-  <%= render "form", post: @post %>
+  <div class="post-form", id="form">
+    <%= render "form", post: @post %>
+  </div>
 </div>

@@ -1,5 +1,5 @@
 <%= turbo_frame_tag post do %>
-  <%= form_with model: post, class: "post-form" do |form| %>
+  <%= form_with model: post, class: "post-form-form" do |form| %>
     <% if post.errors.any? %>
       <div style="color: red">
         <ul>
@@ -12,14 +12,14 @@
 
     <%= form.hidden_field :year %>
 
-    <div class="post-form-reporter">
-      <%= form.text_field :reporter, class: "post-form-reporter-content", placeholder: "名前" %>
+    <div class="post-form-first">
+      <%= form.rich_textarea :content, class: "post-form-content", id: "post-form-content" %>
     </div>
 
-    <div class="post-form-content">
-      <%= form.rich_textarea :content, class: "post-form-content-content" %>
-    </div>
+    <div class="post-form-latter">
+      <%= form.text_field :reporter, class: "post-form-reporter", placeholder: "投稿者", id: "post-form-reporter" %>
 
-    <%= form.submit "投稿", class: "post-form-submit" %>
+      <%= form.submit "投稿", class: "post-form-submit" %>
+    </div>
   <% end %>
 <% end %>

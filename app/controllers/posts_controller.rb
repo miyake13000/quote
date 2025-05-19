@@ -32,7 +32,6 @@ class PostsController < ApplicationController
   # POST /posts
   def create
     @post = Post.new(post_params)
-
     if !@post.save
       render :new, status: :unprocessable_entity
     end
@@ -58,15 +57,6 @@ class PostsController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_post
       @post = Post.find(params.expect(:id))
-    end
-
-    def current_year
-      date = Time.current.to_date
-      if date.month >= 4
-        date.year
-      else
-        date.year - 1
-      end
     end
 
     def get_year_from_params

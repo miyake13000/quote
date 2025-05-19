@@ -1,0 +1,131 @@
+/* ---------------------- */
+/*  Whole of index pages  */
+/* ---------------------- */
+.posts-and-form {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+/* --------------- */
+/*  List of Posts  */
+/* --------------- */
+.posts {
+    display: flex;
+    flex-grow: 1;
+    flex-direction: column;
+    overflow: auto;
+}
+
+/*  Each post  */
+.post {
+    border-bottom: 1px solid gray;
+    padding: 1em;
+}
+
+.post-top {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.post-header {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-end;
+}
+
+.post-reporter {
+    font-size: 1.2em;
+    font-weight: bold;
+}
+
+.post-date:before {
+    content: ":";
+    margin-left: 0.3em;
+}
+
+.post-date {
+    font-size: 1.0em;
+    color: gray;
+}
+
+.post-action {
+    display: flex;
+    flex-direction: row;
+}
+
+.post-action-edit, .post-action-delete {
+    margin-right: 1em;
+    font-size: 14px;
+}
+
+.post-action-edit:hover, .post-action-delete:hover {
+    background-color: #d0d0d0;
+}
+
+.post-action-edit:focus, .post-action-delete:focus {
+    background-color: #d0d0d0;
+}
+
+.post-content {
+    padding: 1em;
+}
+
+
+/* --------------- */
+/*  Form for edit  */
+/* --------------- */
+.post-edit-action {
+    margin-top: 1em;
+}
+
+.post-edit-cancel, .post-edit-submit {
+    margin-right: 1em;
+    font-size: 14px;
+}
+
+/* ------------------- */
+/*  Form for new post  */
+/* ------------------- */
+.post-form {
+    width: 100%;
+    bottom: 0;
+    border-top: 1px solid gray;
+    padding: 1em;
+}
+
+.post-form-first {
+    margin-right: 2em;
+}
+
+.post-form-content {
+    /* nothing */
+}
+
+.post-form-latter {
+    margin-top: 1em;
+    margin-right: 2em;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+.post-form-reporter {
+    /* nothing */
+}
+
+.post-form-submit {
+    font-size: 15px;
+    border-radius: 3px;
+    border-color: gray;
+    background-color: lightgray;
+}
+
+.post-form-submit:hover, .post-form-submit:focus {
+    background-color: gray;
+    color: white;
+}
