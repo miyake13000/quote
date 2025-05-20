@@ -22,7 +22,7 @@
 /*  Each post  */
 .post {
     border-bottom: 1px solid gray;
-    padding: 1em;
+    padding: 0.5em 1em 0.5em 1em;
 }
 
 .post-top {
@@ -52,39 +52,57 @@
     color: gray;
 }
 
-.post-action {
+.post-actions {
     display: flex;
     flex-direction: row;
 }
 
-.post-action-edit, .post-action-delete {
+.post-action {
     margin-right: 1em;
     font-size: 14px;
+    border: 1px solid gray;
+    border-radius: 4px;
+    background-color: #e5e5e5;
 }
 
-.post-action-edit:hover, .post-action-delete:hover {
+.post-action:hover, post-action:focus {
     background-color: #d0d0d0;
-}
-
-.post-action-edit:focus, .post-action-delete:focus {
-    background-color: #d0d0d0;
+    border: 1px solid gray;
 }
 
 .post-content {
-    padding: 1em;
+    padding-top: 0.5em;
+    padding-left: 1em;
 }
 
 
 /* --------------- */
 /*  Form for edit  */
 /* --------------- */
-.post-edit-action {
+.post-edit {
+    padding: 1em;
+    border-bottom: 1px solid gray;
+}
+
+.post-edit-actions {
     margin-top: 1em;
 }
 
-.post-edit-cancel, .post-edit-submit {
+.post-edit-action {
+    display: inline-block;
+    border: 1px solid gray;
+    padding: 0 5px 0 5px;
+    color: black;
+    background-color: #e5e5e5;
+    border-radius: 4px;
     margin-right: 1em;
     font-size: 14px;
+    text-decoration: none;
+}
+
+.post-edit-action:hover, .post-edit-action:focus {
+    background-color: #d0d0d0;
+    border: 1px solid gray;
 }
 
 /* ------------------- */
@@ -115,17 +133,18 @@
 }
 
 .post-form-reporter {
-    /* nothing */
+    font-size: 16px;
 }
 
 .post-form-submit {
-    font-size: 15px;
-    border-radius: 3px;
-    border-color: gray;
+    font-size: 16px;
     background-color: lightgray;
+    border: 1px solid gray;
+    border-radius: 4px;
 }
 
 .post-form-submit:hover, .post-form-submit:focus {
-    background-color: gray;
+    background-color: #505050;
+    border: 1px solid black;
     color: white;
 }

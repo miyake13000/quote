@@ -1,10 +1,10 @@
 <%= turbo_frame_tag @post do %>
-  <%= form_with(model: @post, class: "post") do |form| %>
+  <%= form_with(model: @post, class: "post-edit") do |form| %>
     <%= form.rich_textarea :content, class: "post-edit-content" %>
 
-    <div class="post-edit-action">
-      <%= button_to "キャンセル", @post, class: "post-edit-cancel" %>
-      <%= form.submit "更新", class: "post-edit-submit" %>
+    <div class="post-edit-actions">
+      <%= link_to "キャンセル", @post, class: "post-edit-action" %>
+      <%= form.submit "更新", class: "post-edit-action" %>
     </div>
   <% end %>
 <% end %>

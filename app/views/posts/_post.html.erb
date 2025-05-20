@@ -11,9 +11,9 @@
         </div>
       </div>
 
-      <div class="post-action">
-        <%= button_to "編集", edit_post_path(post), method: :get, class: "post-action-edit" %>
-        <%= button_to "削除", post, method: :delete, class: "post-action-delete", form: { data: { turbo_confirm: "削除しますか？" } } %>
+      <div class="post-actions">
+        <%= button_to "編集", edit_post_path(post), method: :get, class: "post-action" %>
+        <%= button_to "削除", post, method: :delete, class: "post-action", form: { data: { turbo_confirm: "削除しますか？" } } %>
       </div>
     </div>
 
