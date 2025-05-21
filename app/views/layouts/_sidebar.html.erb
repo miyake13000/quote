@@ -1,0 +1,5 @@
+<ul>
+  <% @years.each do |year| %>
+    <li><a href=<%= "#{posts_url}?year=#{year}" %>><%= "#{year}年度" %></a></li>
+  <% end %>
+</ul>

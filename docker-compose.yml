@@ -1,0 +1,19 @@
+name: quote
+
+services:
+  quote:
+    image: quote:latest
+    container_name: quote
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - 8000:3000
+    volumes:
+      - ./log:/rails/log
+      - ./storage:/rails/storage
+      - ./config/master.key:/rails/config/master.key
+    restart: always
+    environment:
+      RAILS_ENV: production
+    tty: true
