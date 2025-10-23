@@ -341,174 +341,173 @@ trix-editor .attachment__metadata {
   line-height: 1.5;
   overflow-wrap: break-word;
   word-break: break-word; }
-  .trix-content * {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0; }
-  .trix-content h1 {
-    font-size: 1.2em;
-    line-height: 1.2; }
-  .trix-content blockquote {
-    border: 0 solid #ccc;
-    border-left-width: 0.3em;
-    margin-left: 0.3em;
-    padding-left: 0.6em; }
-  .trix-content [dir=rtl] blockquote,
-  .trix-content blockquote[dir=rtl] {
-    border-width: 0;
-    border-right-width: 0.3em;
-    margin-right: 0.3em;
-    padding-right: 0.6em; }
-  .trix-content > ol {
-    margin-left: 0.5em;
-    margin-top: 0.5em;
-    margin-bottom: 0.5em; }
-  .trix-content > ul {
-    margin-left: 0.5em;
-    margin-top: 0.5em;
-    margin-bottom: 0.5em; }
-  .trix-content li {
-    margin-left: 1em; }
-  .trix-content [dir=rtl] li {
-    margin-right: 1em; }
-  .trix-content pre {
-    display: inline-block;
-    width: 100%;
-    vertical-align: top;
-    font-family: monospace;
-    font-size: 0.9em;
-    padding: 0.5em;
-    white-space: pre;
-    background-color: #eee;
-    overflow-x: auto; }
-  .trix-content img {
-    max-width: 100%;
-    height: auto; }
-  .trix-content .attachment {
-    display: inline-block;
-    position: relative;
-    max-width: 100%; }
-    .trix-content .attachment a {
-      color: inherit;
-      text-decoration: none; }
-      .trix-content .attachment a:hover, .trix-content .attachment a:visited:hover {
-        color: inherit; }
-  .trix-content .attachment__caption {
-    text-align: center; }
-    .trix-content .attachment__caption .attachment__name + .attachment__size::before {
-      content: ' \2022 '; }
-  .trix-content .attachment--preview {
-    width: 100%;
-    text-align: center; }
-    .trix-content .attachment--preview .attachment__caption {
-      color: #666;
-      font-size: 0.9em;
-      line-height: 1.2; }
-  .trix-content .attachment--file {
-    color: #333;
-    line-height: 1;
-    margin: 0 2px 2px 2px;
-    padding: 0.4em 1em;
-    border: 1px solid #bbb;
-    border-radius: 5px; }
-  .trix-content .attachment-gallery {
-    display: flex;
-    flex-wrap: wrap;
-    position: relative; }
-    .trix-content .attachment-gallery .attachment {
-      flex: 1 0 33%;
-      padding: 0 0.5em;
-      max-width: 33%; }
-    .trix-content .attachment-gallery.attachment-gallery--2 .attachment, .trix-content .attachment-gallery.attachment-gallery--4 .attachment {
-      flex-basis: 50%;
-      max-width: 50%; }
+.trix-content * {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0; }
+.trix-content h1 {
+  font-size: 1.2em;
+  line-height: 1.2; }
+.trix-content blockquote {
+  border: 0 solid #ccc;
+  border-left-width: 0.3em;
+  margin-left: 0.3em;
+  padding-left: 0.6em; }
+.trix-content [dir=rtl] blockquote,
+.trix-content blockquote[dir=rtl] {
+  border-width: 0;
+  border-right-width: 0.3em;
+  margin-right: 0.3em;
+  padding-right: 0.6em; }
+.trix-content > ol {
+  margin-left: 0.5em;
+  margin-top: 0.5em;
+  margin-bottom: 0.5em; }
+.trix-content > ul {
+  margin-left: 0.5em;
+  margin-top: 0.5em;
+  margin-bottom: 0.5em; }
+.trix-content li {
+  margin-left: 1em; }
+.trix-content [dir=rtl] li {
+  margin-right: 1em; }
+.trix-content pre {
+  display: inline-block;
+  width: 100%;
+  vertical-align: top;
+  font-family: monospace;
+  font-size: 0.9em;
+  padding: 0.5em;
+  white-space: pre;
+  background-color: #eee;
+  overflow-x: auto; }
+.trix-content img {
+  max-width: 100%;
+  height: auto;
+  max-height: 50%; }
+.trix-content .attachment {
+  display: inline-block;
+  position: relative;
+  max-width: 100%; }
+.trix-content .attachment a {
+  color: inherit;
+  text-decoration: none; }
+.trix-content .attachment a:hover, .trix-content .attachment a:visited:hover {
+  color: inherit; }
+.trix-content .attachment__caption {}
+.trix-content .attachment__caption .attachment__name + .attachment__size::before {
+  content: ' \2022 '; }
+.trix-content .attachment--preview {
+  width: 25%; }
+.trix-content .attachment--preview .attachment__caption {
+  color: #666;
+  font-size: 0.9em;
+  line-height: 1.2; }
+.trix-content .attachment--file {
+  color: #333;
+  line-height: 1;
+  margin: 0 2px 2px 2px;
+  padding: 0.4em 1em;
+  border: 1px solid #bbb;
+  border-radius: 5px; }
+.trix-content .attachment-gallery {
+  display: flex;
+  flex-wrap: wrap;
+  position: relative; }
+.trix-content .attachment-gallery .attachment {
+  flex: 1 0 33%;
+  padding: 0 0.5em;
+  max-width: 100%; }
+.trix-content .attachment-gallery.attachment-gallery--2 .attachment, .trix-content .attachment-gallery.attachment-gallery--4 .attachment {
+  flex-basis: 50%;
+  max-width: 50%; }
 
 /* Apply same style to trix-editor as rich text view */
 trix-editor {
   line-height: 1.5;
   overflow-wrap: break-word;
   word-break: break-word; }
-  trix-editor * {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0; }
-  trix-editor h1 {
-    font-size: 1.2em;
-    line-height: 1.2; }
-  trix-editor blockquote {
-    border: 0 solid #ccc;
-    border-left-width: 0.3em;
-    margin-left: 0.3em;
-    padding-left: 0.6em; }
-  trix-editor [dir=rtl] blockquote,
-  trix-editor blockquote[dir=rtl] {
-    border-width: 0;
-    border-right-width: 0.3em;
-    margin-right: 0.3em;
-    padding-right: 0.6em; }
-  trix-editor > ul {
-    margin-left: 0.5em;
-    margin-top: 0.5em;
-    margin-bottom: 0.5em; }
-  trix-editor > ol {
-    margin-left: 0.5em;
-    margin-top: 0.5em;
-    margin-bottom: 0.5em; }
-  trix-editor li {
-    margin-left: 1em; }
-  trix-editor [dir=rtl] li {
-    margin-right: 1em; }
-  trix-editor pre {
-    display: inline-block;
-    width: 100%;
-    vertical-align: top;
-    font-family: monospace;
-    font-size: 0.9em;
-    padding: 0.5em;
-    white-space: pre;
-    background-color: #eee;
-    overflow-x: auto; }
-  trix-editor img {
-    max-width: 100%;
-    height: auto; }
-  trix-editor .attachment {
-    display: inline-block;
-    position: relative;
-    max-width: 100%; }
-    trix-editor .attachment a {
-      color: inherit;
-      text-decoration: none; }
-      trix-editor .attachment a:hover, .trix-content .attachment a:visited:hover {
-        color: inherit; }
-  trix-editor .attachment__caption {
-    text-align: center; }
-    trix-editor .attachment__caption .attachment__name + .attachment__size::before {
-      content: ' \2022 '; }
-  trix-editor .attachment--preview {
-    width: 100%;
-    text-align: center; }
-    trix-editor .attachment--preview .attachment__caption {
-      color: #666;
-      font-size: 0.9em;
-      line-height: 1.2; }
-  trix-editor .attachment--file {
-    color: #333;
-    line-height: 1;
-    margin: 0 2px 2px 2px;
-    padding: 0.4em 1em;
-    border: 1px solid #bbb;
-    border-radius: 5px; }
-  trix-editor .attachment-gallery {
-    display: flex;
-    flex-wrap: wrap;
-    position: relative; }
-    trix-editor .attachment-gallery .attachment {
-      flex: 1 0 33%;
-      padding: 0 0.5em;
-      max-width: 33%; }
-    trix-editor .attachment-gallery.attachment-gallery--2 .attachment, .trix-content .attachment-gallery.attachment-gallery--4 .attachment {
-      flex-basis: 50%;
-      max-width: 50%; }
+trix-editor * {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0; }
+trix-editor h1 {
+  font-size: 1.2em;
+  line-height: 1.2; }
+trix-editor blockquote {
+  border: 0 solid #ccc;
+  border-left-width: 0.3em;
+  margin-left: 0.3em;
+  padding-left: 0.6em; }
+trix-editor [dir=rtl] blockquote,
+trix-editor blockquote[dir=rtl] {
+  border-width: 0;
+  border-right-width: 0.3em;
+  margin-right: 0.3em;
+  padding-right: 0.6em; }
+trix-editor > ul {
+  margin-left: 0.5em;
+  margin-top: 0.5em;
+  margin-bottom: 0.5em; }
+trix-editor > ol {
+  margin-left: 0.5em;
+  margin-top: 0.5em;
+  margin-bottom: 0.5em; }
+trix-editor li {
+  margin-left: 1em; }
+trix-editor [dir=rtl] li {
+  margin-right: 1em; }
+trix-editor pre {
+  display: inline-block;
+  width: 100%;
+  vertical-align: top;
+  font-family: monospace;
+  font-size: 0.9em;
+  padding: 0.5em;
+  white-space: pre;
+  background-color: #eee;
+  overflow-x: auto; }
+trix-editor img {
+  max-width: 25%;
+  height: auto;
+  max-height: 50%; }
+trix-editor .attachment {
+  display: inline-block;
+  position: relative;
+  max-width: 100%; }
+trix-editor .attachment a {
+  color: inherit;
+  text-decoration: none; }
+trix-editor .attachment a:hover, .trix-content .attachment a:visited:hover {
+  color: inherit; }
+trix-editor .attachment__caption {
+  text-align: center; }
+trix-editor .attachment__caption .attachment__name + .attachment__size::before {
+  content: ' \2022 '; }
+trix-editor .attachment--preview {
+  width: 25%; }
+trix-editor .attachment--preview .attachment__caption {
+  color: #666;
+  font-size: 0.9em;
+  line-height: 1.2; }
+trix-editor .attachment--file {
+  color: #333;
+  line-height: 1;
+  margin: 0 2px 2px 2px;
+  padding: 0.4em 1em;
+  border: 1px solid #bbb;
+  border-radius: 5px; }
+trix-editor .attachment-gallery {
+  display: flex;
+  flex-wrap: wrap;
+  position: relative; }
+trix-editor .attachment-gallery .attachment {
+  flex: 1 0 33%;
+  padding: 0 0.5em;
+  max-width: 100%; }
+trix-editor .attachment-gallery.attachment-gallery--2 .attachment, .trix-content .attachment-gallery.attachment-gallery--4 .attachment {
+  flex-basis: 50%;
+  max-width: 50%; }
 
 /*
  * We need to override trix.css’s image gallery styles to accommodate the
@@ -533,3 +532,22 @@ trix-editor {
   padding: 0 !important;
   max-width: 100% !important;
 }
+/**/
+/* trix-editor .attachment-gallery > action-text-attachment, */
+/* trix-editor .attachment-gallery > .attachment { */
+/*   flex: 1 0 33%; */
+/*   padding: 0 0.5em; */
+/*   max-width: 33%; */
+/* } */
+/**/
+/* trix-editor .attachment-gallery.attachment-gallery--2 > action-text-attachment, */
+/* trix-editor .attachment-gallery.attachment-gallery--2 > .attachment, .trix-content .attachment-gallery.attachment-gallery--4 > action-text-attachment, */
+/* trix-editor .attachment-gallery.attachment-gallery--4 > .attachment { */
+/*   flex-basis: 50%; */
+/*   max-width: 50%; */
+/* } */
+/**/
+/* trix-editor action-text-attachment .attachment { */
+/*   padding: 0 !important; */
+/*   max-width: 100% !important; */
+/* } */
