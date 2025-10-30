@@ -11,10 +11,12 @@
         </div>
       </div>
 
-      <div class="post-actions">
-        <%= button_to "編集", edit_post_path(post), method: :get, class: "post-action" %>
-        <%= button_to "削除", post, method: :delete, class: "post-action", form: { data: { turbo_confirm: "削除しますか？" } } %>
-      </div>
+      <% if admin_signed_in? %>
+        <div class="post-actions">
+          <%= button_to "編集", edit_post_path(post), method: :get, class: "post-action" %>
+          <%= button_to "削除", post, method: :delete, class: "post-action", form: { data: { turbo_confirm: "削除しますか？" } } %>
+        </div>
+      <% end %>
     </div>
 
     <div class="post-content">

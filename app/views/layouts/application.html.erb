@@ -27,9 +27,22 @@
     <div class="screen">
 
       <!-- Header -->
-      <div class="header">
-        <%= render 'layouts/header' %>
-      </div>
+      <header>
+        <div class="header">
+          <%= render 'layouts/header' %>
+        </div>
+        <div class="login">
+          <% if admin_signed_in? %>
+            <%= link_to 'ログアウト', destroy_admin_session_path, data: { turbo_method: :delete } %>
+          <% else %>
+            <%= link_to 'ログイン', new_admin_session_path %>
+          <% end %>
+        </div>
+      </header>
+
+      <!-- flash for devise -->
+      <p class="notice"><%= notice %></p>
+      <p class="alert"><%= alert %></p>
 
       <!-- Sidebar -->
       <div class="sidebar">

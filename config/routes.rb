@@ -2,6 +2,9 @@ Rails.application.routes.draw do
   # Defines the root path route ("/")
   root "posts#home"
 
+  # Admin login routes, skipping registrations to prevent sign-ups
+  devise_for :admins, skip: [:registrations]
+
   # Define application routings
   resources :posts
 
