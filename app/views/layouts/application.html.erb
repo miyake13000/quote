@@ -19,41 +19,76 @@
 
     <%# Includes all stylesheet files in app/assets/stylesheets %>
     <%= stylesheet_link_tag :app, "data-turbo-track": "reload" %>
+    <%= stylesheet_link_tag "actiontext", "data-turbo-track": "reload" %>
     <%= javascript_importmap_tags %>
   </head>
 
-  <body>
+  <body class="bg-gray-50">
+
     <!-- Whole of Screen -->
-    <div class="screen">
+    <div class="min-h-screen flex flex-col">
 
       <!-- Header -->
-      <header>
-        <div class="header">
-          <%= render 'layouts/header' %>
-        </div>
-        <div class="login">
-          <% if admin_signed_in? %>
-            <%= link_to 'ログアウト', destroy_admin_session_path, data: { turbo_method: :delete } %>
-          <% else %>
-            <%= link_to 'ログイン', new_admin_session_path %>
-          <% end %>
+      <header class="bg-gray-50 border-b border-gray-300 shadow-md fixed top-0 left-0 right-0 z-10">
+        <div class="flex items-center justify-between px-6 py-4">
+
+          <!-- Header Title -->
+          <div class="text-2xl">
+            <a href=<%= root_path %>>
+              <%= @year_param.nil? ? "" : "#{@year_param}年度 " %>迷言集
+            </a>
+          </div>
+
+          <!-- Login / Logout -->
+          <div>
+            <% if admin_signed_in? %>
+              <%= link_to 'ログアウト', destroy_admin_session_path,
+                  data: { turbo_method: :delete },
+                  class: "text-blue-600 hover:text-blue-700 font-medium" %>
+            <% else %>
+              <%= link_to 'ログイン', new_admin_session_path,
+                  class: "text-blue-600 hover:text-blue-700 font-medium" %>
+            <% end %>
+          </div>
+
         </div>
       </header>
 
-      <!-- flash for devise -->
-      <p class="notice"><%= notice %></p>
-      <p class="alert"><%= alert %></p>
+      <!-- Main Screen (Sidebar + Content) -->
+      <div class="flex flex-1 pt-16">
 
-      <!-- Sidebar -->
-      <div class="sidebar">
-        <%= render 'layouts/sidebar' %>
-      </div>
+        <!-- Sidebar -->
+        <aside class="w-48 bg-gray-200 border-r border-gray-400 fixed left-0 top-16 bottom-0 overflow-y-auto">
+          <ul class="p-4 list-disc list-inside">
+            <% @years.each do |year| %>
+              <li class="my-3">
+                <a class="text-xl underline hover:bg-white" href=<%= "#{posts_url}?year=#{year}"%>>
+                    <%= "#{year}年度" %>
+                </a>
+              </li>
+            <% end %>
+          </ul>
+        </aside>
 
-      <!-- Content -->
-      <main class="content">
-        <%= yield %>
-      </main>
+        <!-- Content -->
+        <main class="flex-1 ml-48 p-6">
 
+          <!-- flash for devise -->
+          <% if notice.present? %>
+            <p class="notice bg-blue-50 border border-blue-200 text-blue-800 px-4 py-3 rounded mb-4">
+              <%= notice %>
+            </p>
+          <% end %>
+          <% if alert.present? %>
+            <p class="alert bg-red-50 border border-red-200 text-red-800 px-4 py-3 rounded mb-4">
+              <%= alert %>
+            </p>
+          <% end %>
+
+          <!-- Main Content -->
+          <%= yield %>
+
+        </main>
       </div>
     </div>
   </body>

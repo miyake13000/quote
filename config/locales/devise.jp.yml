@@ -1,0 +1,25 @@
+# Additional translations at https://github.com/heartcombo/devise/wiki/I18n
+
+ja:
+  devise:
+    failure:
+      already_authenticated: "既にログインしています"
+      inactive: "Your account is not activated yet."
+      invalid: "ユーザ名，またはパスワードが間違っています"
+      not_found_in_database: "ユーザ名，またはパスワードが間違っています"
+      timeout: "セッションが切れました．再ログインしてください"
+      unauthenticated: "ログインが必要です"
+    sessions:
+      signed_in: "ログインしました"
+      signed_out: "ログアウトしました"
+      already_signed_out: "ログアウトしました"
+  errors:
+    messages:
+      already_confirmed: "was already confirmed, please try signing in"
+      confirmation_period_expired: "needs to be confirmed within %{period}, please request a new one"
+      expired: "has expired, please request a new one"
+      not_found: "not found"
+      not_locked: "was not locked"
+      not_saved:
+        one: "1 error prohibited this %{resource} from being saved:"
+        other: "%{count} errors prohibited this %{resource} from being saved:"

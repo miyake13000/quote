@@ -1,10 +1,33 @@
 <%= turbo_frame_tag @post do %>
-  <%= form_with(model: @post, class: "post-edit") do |form| %>
-    <%= form.rich_textarea :content, class: "post-edit-content" %>
+  <div class="bg-white rounded-lg shadow-sm border border-gray-200 p-4 hover:shadow-md transition-shadow">
+    <%= form_with(model: @post) do |form| %>
 
-    <div class="post-edit-actions">
-      <%= link_to "キャンセル", @post, class: "post-edit-action" %>
-      <%= form.submit "更新", class: "post-edit-action" %>
-    </div>
-  <% end %>
+      <!-- Content -->
+      <div class="mb-2 rich-text-content">
+        <%= form.rich_textarea :content,
+            id: "post-form-content",
+            class: "w-full rounded-md border border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500",
+            placeholder: "投稿内容を入力..." %>
+      </div>
+
+      <!-- Reporter -->
+      <div class="mb-2">
+        <%= form.label :reporter,
+            "投稿者: ",
+            class: "text-gray-600" %>
+        <%= form.text_field :reporter,
+            id: "post-form-reporter",
+            class: "rounded-md border border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 px-3 py-2" %>
+      </div>
+
+      <!-- Update / Cancel button -->
+      <div class="flex items-center gap-2">
+        <%= form.submit "更新",
+            class: "px-6 py-2 bg-blue-600 text-white font-medium rounded-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 transition-colors cursor-pointer" %>
+        <%= button_to "キャンセル", post_path(@post), method: :get,
+            class: "px-3 py-1.5 text-sm font-medium text-blue-600 hover:text-blue-700 hover:bg-blue-50 rounded transition-colors" %>
+      </div>
+
+    <% end %>
+  </div>
 <% end %>

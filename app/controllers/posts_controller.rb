@@ -1,7 +1,7 @@
 class PostsController < ApplicationController
   before_action :set_post, only: %i[ show edit update destroy ]
   before_action :get_year_from_params, only: %i[ index new ]
-  before_action :authenticate_user!, only: [ :edit, :update, :destroy ]
+  before_action :authenticate_admin!, only: [ :edit, :update, :destroy ]
 
   # GET /
   def home

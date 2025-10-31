@@ -1,9 +1,18 @@
-<div class="posts-and-form">
-  <div class="posts", id="posts">
-    <%= render @posts %>
+<div class="flex flex-col h-full">
+
+  <!-- List of post -->
+  <div class="flex-1 overflow-y-auto pb-48">
+    <div id="posts" class="space-y-4">
+    <% if @posts.any? %>
+      <%= render @posts %>
+    <% else %>
+      <div class="text-center py-12 text-gray-500">
+        <p class="text-lg">まだ投稿がありません</p>
+      </div>
+    <% end %>
   </div>
 
-  <div class="post-form", id="form">
+  <div id="form" class="fixed bottom-0 left-48 right-0 bg-white border-t border-gray-400 z-10">
     <%= render "form", post: @post %>
   </div>
 </div>
