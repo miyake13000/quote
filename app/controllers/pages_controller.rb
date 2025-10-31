@@ -1,5 +1,6 @@
 class PagesController < ApplicationController
   before_action :set_page, only: %i[ destroy ]
+  before_action :authenticate_admin!, only: [ :create, :destroy ]
 
   # POST /posts
   def create
