@@ -58,20 +58,10 @@
       <div class="flex flex-1 pt-16">
 
         <!-- Sidebar -->
-        <aside class="w-48 bg-gray-200 border-r border-gray-400 fixed left-0 top-16 bottom-0 overflow-y-auto">
-          <ul class="p-4 list-disc list-inside">
-            <% Page.order(created_at: :desc).each do |page| %>
-              <li class="my-3">
-                <a class="text-lg underline hover:bg-white" href=<%="#{posts_url}?page_id=#{page.id}"%>>
-                    <%= page.name %>
-                </a>
-              </li>
-            <% end %>
-          </ul>
-        </aside>
+        <%= render template: "pages/index" %>
 
         <!-- Content -->
-        <main class="flex-1 ml-48 p-6">
+        <main class="flex-1 ml-64 p-6 bg-gray-100">
 
           <!-- flash for devise -->
           <% if notice.present? %>

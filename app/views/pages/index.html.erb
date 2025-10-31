@@ -1,0 +1,15 @@
+<aside class="flex flex-col w-64 bg-gray-200 border-r border-gray-400 fixed left-0 top-16 bottom-0">
+
+  <!-- List of pages -->
+  <ul id="pages" class="flex-1 py-4 px-3  overflow-y-auto pb-25">
+    <%= render partial: "pages/page", collection: Page.order(created_at: :desc) %>
+  </ul>
+
+  <!-- Page form -->
+  <% if admin_signed_in? %>
+    <div id="page_form" class="fixed bottom-0 z-10 w-64">
+      <%= render partial: "pages/form", locals: { page: Page.new } %>
+    </div>
+  <% end %>
+
+</aside>

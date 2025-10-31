@@ -1,0 +1,10 @@
+<%= turbo_frame_tag "new_page" do %>
+  <%= form_with model: Page.new, class: "p-4" do |form| %>
+    <%= form.text_field :name,
+        id: "page-form-name",
+        placeholder: "新ページを作成",
+        class: "text-sm bg-white w-full rounded-md border border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 px-3 py-2 mb-2" %>
+    <%= form.submit "作成",
+        class: "text-sm w-full px-5 py-1 bg-blue-600 text-white rounded-md hover:bg-blue-700" %>
+  <% end %>
+<% end %>
