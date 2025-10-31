@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title><%= @year_param? "#{@year_param}年度 ": "" %>迷言集</title>
+    <title><%= @page ? @page.name : "迷言集" %></title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="mobile-web-app-capable" content="yes">
@@ -35,7 +35,7 @@
           <!-- Header Title -->
           <div class="text-2xl">
             <a href=<%= root_path %>>
-              <%= @year_param.nil? ? "" : "#{@year_param}年度 " %>迷言集
+              <%= @page ? @page.name : "迷言集" %>
             </a>
           </div>
 
@@ -60,10 +60,10 @@
         <!-- Sidebar -->
         <aside class="w-48 bg-gray-200 border-r border-gray-400 fixed left-0 top-16 bottom-0 overflow-y-auto">
           <ul class="p-4 list-disc list-inside">
-            <% @years.each do |year| %>
+            <% Page.order(created_at: :desc).each do |page| %>
               <li class="my-3">
-                <a class="text-xl underline hover:bg-white" href=<%= "#{posts_url}?year=#{year}"%>>
-                    <%= "#{year}年度" %>
+                <a class="text-lg underline hover:bg-white" href=<%="#{posts_url}?page_id=#{page.id}"%>>
+                    <%= page.name %>
                 </a>
               </li>
             <% end %>

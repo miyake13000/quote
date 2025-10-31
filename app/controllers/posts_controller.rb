@@ -1,6 +1,6 @@
 class PostsController < ApplicationController
   before_action :set_post, only: %i[ show edit update destroy ]
-  before_action :get_year_from_params, only: %i[ index new ]
+  before_action :get_page_from_params, only: %i[ index new ]
   before_action :authenticate_admin!, only: [ :edit, :update, :destroy ]
 
   # GET /
@@ -11,13 +11,8 @@ class PostsController < ApplicationController
   # GET /posts
   def index
     @post = Post.new
-    if @year_param
-      @posts = Post.where(year: @year_param).order(created_at: :desc)
-      @post.year = @year_param
-    else
-      @posts = Post.order(created_at: :desc)
-      @post.year = current_year
-    end
+    @posts = @page.posts.order(created_at: :desc)
+    @post.page_id = @page.id
   end
 
   # GET /posts/:id
@@ -27,7 +22,7 @@ class PostsController < ApplicationController
   # GET /posts/new
   def new
     @post = Post.new
-    @post.year = current_year
+    @post.page_id = @page.id
   end
 
   # POST /posts
@@ -77,16 +72,16 @@ class PostsController < ApplicationController
       @post = Post.find(params.expect(:id))
     end
 
-    def get_year_from_params
-      @year_param = begin
-        Integer(params.expect(:year))
-      rescue
-        nil
+    def get_page_from_params
+      @page = begin
+        Page.find(params[:page_id])
+      rescue ActiveRecord::RecordNotFound
+        Page.last
       end
     end
 
     # Only allow a list of trusted parameters through.
     def post_params
-      params.expect(post: [ :year, :reporter, :content ])
+      params.expect(post: [ :page_id, :reporter, :content ])
     end
 end
